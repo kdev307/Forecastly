@@ -58,38 +58,13 @@ function displayWeather(data) {
     document.querySelector(".min-temp").innerHTML = Math.round(data.main.temp_min) + " &degC";
     document.querySelector(".max-temp").innerHTML = Math.round(data.main.temp_max) + " &degC";
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
-    document.querySelector(".wind-speed").innerHTML = data.wind.speed + " km/hr";
+    document.querySelector(".wind-speed").innerHTML = data.wind.speed + " m/s";
     document.querySelector(".weather-desc").innerHTML = data.weather[0].description;
     document.querySelector(".pressure").innerHTML = data.main.pressure + " hPa";
-    document.querySelector(".visibility").innerHTML = data.visibility + " km";
+    document.querySelector(".visibility").innerHTML = data.visibility / 1000 + " km";
     document.querySelector(".feels-like").innerHTML = " " + data.main.feels_like + " &degC";
     let newSrc = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
     document.querySelector(".weather-icon").setAttribute("src", newSrc);
-
-    // if (data.weather[0].description == "clear sky") {
-    //     const now = moment();
-    //     const period = now.format("a");
-    //     if (period == "am") weatherIcon.src = "img/clear-sky.png";
-    //     else weatherIcon.src = "img/clear-sky-night.png";
-    // } else if (data.weather[0].description == "few clouds") {
-    //     const now = moment();
-    //     const period = now.format("a");
-    //     if (period == "am") weatherIcon.src = "img/few-clouds.png";
-    //     else weatherIcon.src = "img/few-clouds-night.png";
-    // } else if (data.weather[0].main == "rain") {
-    //     const now = moment();
-    //     const period = now.format("a");
-    //     if (period == "am") weatherIcon.src = "img/rain.png";
-    //     else weatherIcon.src = "img/rain-night.png";
-    // } else if (data.weather[0].description == "scattered clouds")
-    //     weatherIcon.src = "img/scat-clouds.png";
-    // else if (data.weather[0].description == "	broken clouds")
-    //     weatherIcon.src = "img/broken-clouds.png";
-    // else if (data.weather[0].description == "shower rain") weatherIcon.src = "img/shower-rain.png";
-    // else if (data.weather[0].description == "thunderstorm")
-    //     weatherIcon.src = "img/thunderstorm.png";
-    // else if (data.weather[0].description == "snow") weatherIcon.src = "img/snow.png";
-    // else if (data.weather[0].description == "mist") weatherIcon.src = "img/mist.png";
 
     document.querySelector(".weather-info").style.display = "block";
 }
